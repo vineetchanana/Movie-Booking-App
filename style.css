@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* box sizing property defines how the width and height of an element calculated
+should they include padding and border
+border box : include padding and border in width and height */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #242333;
+    color: #fff;
+    /* using flexbox ....but it's not working its grayed off in inspector(should have gone horizontally but didn't happen)*/
+    
+    display: flex; 
+    flex-direction: column;
+    /* but its working align item  it is not grayed in body its grayed for container*/
+    align-items: center;
+    justify-content: center;
+   height: 100vh;
+   font-family: 'Lato', sans-serif;
+   margin: 0;
+}
+
+.movie-container{
+    margin: 20px 0;
+}
+
+.movie-container select{
+    background-color: #fff;
+    border: 0;
+    /* rounding off the corners */
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px 15px 5px 15px;
+}
+
+/* added later(after screen)(was not adding it with the flow) */
+.container{
+    /* used for 3d effects...for large amount of pixels screen gets tilted */
+    perspective: 1000px;
+    /* gives margin between container and para at the bottom */
+    margin-bottom: 30px;
+}
+
+.seat{
+    background-color: #444451;
+    height: 12px;
+    width: 15px;
+    margin: 3px ;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+/* seats which have selected class */
+.seat.selected{
+    background-color: #6feaf6;
+}
+
+.seat.occupied{
+    background-color: #fff;
+}
+
+.seat:nth-of-type(2){
+    margin-right: 18px;
+}
+.seat:nth-last-of-type(2){
+    margin-left: 18px;
+}
+
+/* seats that are not occupied in hover state */
+.seat:not(.occupied):hover{
+    cursor: pointer;
+    /* scales up the seats */
+    transform: scale(1.2);
+}
+
+/* but we dont want above thing to happen on showcase */
+.showcase .seat:not(.occupied):hover{
+    cursor: default;
+    /* scales up the seats */
+    transform: scale(1);
+}
+
+.showcase{
+     /* 0 0 0 means black..transparency of 0.1->very faint bg */
+    background-color: rgba(0,0,0,0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    /* to horizontal the elements */
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase li{
+    /* horizontal the small text and seats */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.showcase li small{
+    margin-left: 5px;
+}
+
+.row{
+    /* align the seats horizontally */
+    display: flex;
+}
+
+.screen{
+    background-color: #fff;
+    height: 70px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    /* adds blur effect around the edges */
+    box-shadow: 0 3px 10px rgba(255,255,255,0.7);
+}
+
+/* text class should be written right against the p */
+p.text{
+    margin: 5px 0;
+}
+p.text span{
+    color: #6feaf6;
+}
+
+
